@@ -20,11 +20,20 @@
     {
       "matches": [
         "*://baozimh.com/*",
+        "*://cn.baozimh.com/*",
+        "*://tw.baozimh.com/*",
         "*://www.baozimh.com/*",
         "*://manhuagui.com/*",
+        "*://www.manhuagui.com/*",
         "*://tw.manhuagui.com/*",
         "*://18comic.vip/*",
+        "*://18comic.ink/*",
+        "*://jmcomic-zzz.one/*",
+        "*://jmcomic-zzz.org/*",
         "*://wnacg.com/*",
+        "*://www.wnacg.com/*",
+        "*://wnacg05.cc/*",
+        "*://wnacg.cloud/*",
         "*://love4u.net/*",
         "*://mycomic.com/*"
       ],

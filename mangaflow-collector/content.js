@@ -1,10 +1,10 @@
 const SOURCE_PATTERNS = [
-  { pattern: /(?:www\.)?baozimh\.com\/comic\/([^/]+)/, source: "baozimh", name: "包子漫画" },
-  { pattern: /(?:www\.|tw\.)?manhuagui\.com\/comic\/([^/]+)/, source: "manhuagui", name: "漫画柜" },
-  { pattern: /18comic\.vip\/album\/([^/]+)/, source: "jinmantiantang", name: "禁漫天堂" },
-  { pattern: /wnacg\.com\/photos-index-aid-(\d+)/, source: "wnacg", name: "绅士漫画" },
-  { pattern: /love4u\.net\/(\d+)/, source: "love4u", name: "Love4u" },
-  { pattern: /mycomic\.com\/comics\/([^/]+)/, source: "mycomic", name: "MyComic" },
+  { pattern: /(?:www\.|cn\.|tw\.)?baozimh\.com\/comic\/([^/]+)/, source: "baozimh", name: "包子漫画" },
+  { pattern: /(?:www\.|tw\.)?manhuagui\.com\/(?:comic|book)\/(\d+)/, source: "manhuagui", name: "漫画柜" },
+  { pattern: /(?:18comic\.vip|18comic\.ink|jmcomic-zzz\.one|jmcomic-zzz\.org)\/album\/([^/]+)/, source: "jinmantiantang", name: "禁漫天堂" },
+  { pattern: /(?:www\.wnacg\.com|wnacg\.com|www\.wn05\.ru|www\.wn04\.ru|wnacg05\.cc|wnacg\.cloud)\/(?:photos-index-aid-|photo\/|p\/-aid-)(?:index-)?(\d+)/, source: "wnacg", name: "绅士漫画" },
+  { pattern: /love4u\.net\/(?:(\d+)|comic\/([^/]+))/, source: "love4u", name: "Love4u" },
+  { pattern: /mycomic\.com\/(?:comics\/|cn\/|)(\d+)/, source: "mycomic", name: "MyComic" },
 ];
 
 const TITLE_SELECTORS = {
@@ -18,9 +18,11 @@ const TITLE_SELECTORS = {
 
 function detectSource() {
   const url = window.location.href;
+  console.log('[Mangaaflow] Checking URL:', url);
   
   for (const sp of SOURCE_PATTERNS) {
     if (sp.pattern.test(url)) {
+      console.log('[Mangaaflow] Matched:', sp.name, sp.source);
       return {
         source: sp.source,
         name: sp.name,
@@ -28,6 +30,7 @@ function detectSource() {
       };
     }
   }
+  console.log('[Mangaaflow] No match found');
   return null;
 }
 
