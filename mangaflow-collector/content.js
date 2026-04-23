@@ -1,5 +1,5 @@
 const SOURCE_PATTERNS = [
-  { pattern: /baozimh\.com\/comic\/([^/]+)/, source: "baozimh", name: "包子漫画" },
+  { pattern: /(?:www\.)?baozimh\.com\/comic\/([^/]+)/, source: "baozimh", name: "包子漫画" },
   { pattern: /(?:www\.|tw\.)?manhuagui\.com\/comic\/([^/]+)/, source: "manhuagui", name: "漫画柜" },
   { pattern: /18comic\.vip\/album\/([^/]+)/, source: "jinmantiantang", name: "禁漫天堂" },
   { pattern: /wnacg\.com\/photos-index-aid-(\d+)/, source: "wnacg", name: "绅士漫画" },
