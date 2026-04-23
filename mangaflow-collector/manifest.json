@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Mangaaflow 收藏助手",
+  "version": "1.0.0",
+  "description": "一键将漫画添加到 Mangaaflow 收藏",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://localhost:8000"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://baozimh.com/*",
+        "*://manhuagui.com/*",
+        "*://18comic.vip/*",
+        "*://wnacg.com/*",
+        "*://love4u.net/*",
+        "*://mycomic.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
