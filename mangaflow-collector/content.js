@@ -79,7 +79,12 @@ function createFloatingButton() {
       btn.disabled = false;
       
       if (response && response.success) {
-        alert("✅ 添加成功！");
+        const data = response.data;
+        if (data && data.is_new === false) {
+          alert("⏸️ 已存在收藏中: " + (data.title || sourceInfo.name));
+        } else {
+          alert("✅ 添加成功: " + (data?.title || data?.manga_id || ""));
+        }
       } else {
         alert("❌ 添加失败: " + (response?.error || "未知错误"));
       }
